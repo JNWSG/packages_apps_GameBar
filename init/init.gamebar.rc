@@ -2,30 +2,22 @@
 # NOTE: Customize these paths for your device's hardware
 
 on boot
-    # FPS measurement path (adjust paths)
-    chown system graphics /sys/class/drm/sde-crtc-0/measured_fps
-    chmod 0660 /sys/class/drm/sde-crtc-0/measured_fps
+    # FPS
+    chmod 0444 /sys/class/drm/sde-crtc-0/measured_fps
 
-    # Battery temperature path (adjust paths)
-    chown system system /sys/class/power_supply/battery/temp
-    chmod 0660 /sys/class/power_supply/battery/temp
-    
-    # CPU temperature path (adjust thermal zone number)
-    chown system system /sys/class/thermal/thermal_zone48/temp
-    chmod 0660 /sys/class/thermal/thermal_zone48/temp
-    
-    # GPU paths (adjust paths)
-    chown system system /sys/class/kgsl/kgsl-3d0/gpu_busy_percentage
-    chmod 0660 /sys/class/kgsl/kgsl-3d0/gpu_busy_percentage
-    chown system system /sys/class/kgsl/kgsl-3d0/gpuclk
-    chmod 0660 /sys/class/kgsl/kgsl-3d0/gpuclk
-    chown system system /sys/class/kgsl/kgsl-3d0/temp
-    chmod 0660 /sys/class/kgsl/kgsl-3d0/temp
-    
-    # RAM frequency path (adjust paths)
-    chown system system /sys/devices/system/cpu/bus_dcvs/DDR/cur_freq
-    chmod 0660 /sys/devices/system/cpu/bus_dcvs/DDR/cur_freq
-    
-    # RAM temperature path (adjust thermal zone number)
-    chown system system /sys/class/thermal/thermal_zone27/temp
-    chmod 0660 /sys/class/thermal/thermal_zone27/temp
+    # Battery temperature
+    chmod 0444 /sys/class/thermal/thermal_zone90/temp
+
+    # CPU temperature
+    chmod 0444 /sys/class/thermal/thermal_zone28/temp
+
+    # GPU stats
+    chmod 0444 /sys/class/kgsl/kgsl-3d0/gpuclk
+    chmod 0444 /sys/class/kgsl/kgsl-3d0/gpu_busy_percentage
+    chmod 0444 /sys/class/kgsl/kgsl-3d0/gpu_model
+    chmod 0444 /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies
+    chmod 0444 /sys/class/thermal/thermal_zone40/temp
+
+    # RAM
+    chmod 0444 /sys/class/thermal/thermal_zone45/temp
+    chmod 0444 /sys/devices/system/cpu/bus_dcvs/DDR/cur_freq
